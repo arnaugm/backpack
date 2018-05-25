@@ -24,6 +24,7 @@
     display: flex;
     min-height: $bpk-spacing-xxl;
     padding: $bpk-spacing-base;
+    flex-wrap: wrap;
 
     &--light {
       background-color: $bpk-color-gray-700;

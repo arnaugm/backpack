@@ -20,13 +20,24 @@
 
 .bpkdocs-badge-page {
   &__badge-spacing {
+    max-width: 100%;
+    margin-top: $bpk-spacing-sm;
     margin-right: $bpk-spacing-sm;
+    overflow: hidden;
   }
 
-  &__badge-container {
+  &__badge-container-docked {
     position: relative;
     display: block;
     height: $bpk-one-pixel-rem * 60;
     background-color: $bpk-color-gray-50;
+  }
+
+  &__badge-layout-light {
+    padding-top: $bpk-spacing-sm;
+  }
+
+  &__badge-layout-dark {
+    margin-top: - $bpk-spacing-sm;
   }
 }

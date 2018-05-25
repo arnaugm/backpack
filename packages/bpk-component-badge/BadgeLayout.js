@@ -36,11 +36,15 @@ const LIGHT_BADGES = [
 export type Props = {
   docked: ?string,
   children: Element<*>,
+  className: ?string,
 };
 
 const BadgeLayout = (props: Props) => {
-  const { docked, children } = props;
+  const { docked, children, className } = props;
   const classNames = [getClassName('bpk-badge-layout__container')];
+  if (className) {
+    classNames.push(className);
+  }
 
   if (
     docked ||
@@ -55,10 +59,12 @@ const BadgeLayout = (props: Props) => {
 BadgeLayout.propTypes = {
   docked: PropTypes.string,
   children: PropTypes.node.isRequired,
+  className: PropTypes.string,
 };
 
 BadgeLayout.defaultProps = {
   docked: null,
+  className: null,
 };
 
 export default BadgeLayout;

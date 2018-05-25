@@ -43,10 +43,12 @@ const components = [
       </Paragraph>,
     ],
     examples: [
-      <BpkBadge className={badgeClassName}>Apples</BpkBadge>,
-      <BpkBadge className={badgeClassName}>Bananas</BpkBadge>,
-      <BpkBadge className={badgeClassName}>Strawberries</BpkBadge>,
-      <BpkBadge className={badgeClassName}>Pears</BpkBadge>,
+      <div className={getClassName('bpkdocs-badge-page__badge-layout-dark')}>
+        <BpkBadge className={badgeClassName}>Apples</BpkBadge>
+        <BpkBadge className={badgeClassName}>Bananas</BpkBadge>
+        <BpkBadge className={badgeClassName}>Strawberries</BpkBadge>
+        <BpkBadge className={badgeClassName}>Pears</BpkBadge>
+      </div>,
     ],
   },
   {
@@ -59,7 +61,9 @@ const components = [
       </Paragraph>,
     ],
     examples: [
-      <div className={getClassName('bpkdocs-badge-page__badge-container')}>
+      <div
+        className={getClassName('bpkdocs-badge-page__badge-container-docked')}
+      >
         <BpkBadge docked="right">Advert</BpkBadge>
       </div>,
     ],
@@ -74,16 +78,18 @@ const components = [
       </Paragraph>,
     ],
     examples: [
-      <BpkBadge centered className={badgeClassName}>
-        Apples
-      </BpkBadge>,
-      <BpkBadge centered className={badgeClassName}>
-        Bananas
-      </BpkBadge>,
-      <BpkBadge centered className={badgeClassName}>
-        Strawberries
-      </BpkBadge>,
-      <BpkBadge centered>Pears</BpkBadge>,
+      <div className={getClassName('bpkdocs-badge-page__badge-layout-dark')}>
+        <BpkBadge centered className={badgeClassName}>
+          Apples
+        </BpkBadge>
+        <BpkBadge centered className={badgeClassName}>
+          Bananas
+        </BpkBadge>
+        <BpkBadge centered className={badgeClassName}>
+          Strawberries
+        </BpkBadge>
+        <BpkBadge centered>Pears</BpkBadge>
+      </div>,
     ],
   },
   {
@@ -93,18 +99,20 @@ const components = [
       <Paragraph>The success badge is a green color as shown below.</Paragraph>,
     ],
     examples: [
-      <BpkBadge type={BADGE_TYPES.success} className={badgeClassName}>
-        Apples
-      </BpkBadge>,
-      <BpkBadge type={BADGE_TYPES.success} className={badgeClassName}>
-        Bananas
-      </BpkBadge>,
-      <BpkBadge type={BADGE_TYPES.success} className={badgeClassName}>
-        Strawberries
-      </BpkBadge>,
-      <BpkBadge type={BADGE_TYPES.success} className={badgeClassName}>
-        Pears
-      </BpkBadge>,
+      <div className={getClassName('bpkdocs-badge-page__badge-layout-dark')}>
+        <BpkBadge type={BADGE_TYPES.success} className={badgeClassName}>
+          Apples
+        </BpkBadge>
+        <BpkBadge type={BADGE_TYPES.success} className={badgeClassName}>
+          Bananas
+        </BpkBadge>
+        <BpkBadge type={BADGE_TYPES.success} className={badgeClassName}>
+          Strawberries
+        </BpkBadge>
+        <BpkBadge type={BADGE_TYPES.success} className={badgeClassName}>
+          Pears
+        </BpkBadge>
+      </div>,
     ],
   },
   {
@@ -116,18 +124,20 @@ const components = [
       </Paragraph>,
     ],
     examples: [
-      <BpkBadge type={BADGE_TYPES.destructive} className={badgeClassName}>
-        Apples
-      </BpkBadge>,
-      <BpkBadge type={BADGE_TYPES.destructive} className={badgeClassName}>
-        Bananas
-      </BpkBadge>,
-      <BpkBadge type={BADGE_TYPES.destructive} className={badgeClassName}>
-        Strawberries
-      </BpkBadge>,
-      <BpkBadge type={BADGE_TYPES.destructive} className={badgeClassName}>
-        Pears
-      </BpkBadge>,
+      <div className={getClassName('bpkdocs-badge-page__badge-layout-dark')}>
+        <BpkBadge type={BADGE_TYPES.destructive} className={badgeClassName}>
+          Apples
+        </BpkBadge>
+        <BpkBadge type={BADGE_TYPES.destructive} className={badgeClassName}>
+          Bananas
+        </BpkBadge>
+        <BpkBadge type={BADGE_TYPES.destructive} className={badgeClassName}>
+          Strawberries
+        </BpkBadge>
+        <BpkBadge type={BADGE_TYPES.destructive} className={badgeClassName}>
+          Pears
+        </BpkBadge>
+      </div>,
     ],
   },
   {
@@ -137,7 +147,9 @@ const components = [
       <Paragraph>The light badge is a gray color as shown below.</Paragraph>,
     ],
     examples: [
-      <BadgeLayout>
+      <BadgeLayout
+        className={getClassName('bpkdocs-badge-page__badge-layout-light')}
+      >
         <BpkBadge type={BADGE_TYPES.light} className={badgeClassName}>
           Apples
         </BpkBadge>
@@ -158,7 +170,9 @@ const components = [
     title: 'Inverse',
     blurb: [<Paragraph>The inverse badge is white as shown below.</Paragraph>],
     examples: [
-      <BadgeLayout>
+      <BadgeLayout
+        className={getClassName('bpkdocs-badge-page__badge-layout-light')}
+      >
         <BpkBadge type={BADGE_TYPES.inverse} className={badgeClassName}>
           Apples
         </BpkBadge>
@@ -183,7 +197,9 @@ const components = [
       </Paragraph>,
     ],
     examples: [
-      <BadgeLayout>
+      <BadgeLayout
+        className={getClassName('bpkdocs-badge-page__badge-layout-light')}
+      >
         <BpkBadge type={BADGE_TYPES.outline} className={badgeClassName}>
           Apples
         </BpkBadge>
