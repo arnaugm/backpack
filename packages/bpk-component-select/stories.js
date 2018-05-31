@@ -17,17 +17,88 @@
  */
 
 import React from 'react';
+import PropTypes from 'prop-types';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import BpkSelect from './index';
 
+class SelectWithImage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selected: 0,
+    };
+  }
+
+  getItemByValue = () => {
+    const { options } = this.props;
+    return val => options.filter(o => o.value === val);
+  };
+
+  getItem = this.getItemByValue();
+
+  handleChange = e => {
+    const [item] = this.getItem(e.target.value);
+
+    if (!item) return;
+
+    this.setState({
+      selected: item.key,
+    });
+  };
+
+  render() {
+    const { options, ...rest } = this.props;
+    return (
+      <BpkSelect
+        value={options[this.state.selected].value}
+        {...rest}
+        image={options[this.state.selected].image}
+        onChange={this.handleChange}
+      >
+        {options.map(o => (
+          <option key={o.value} value={o.value}>
+            {o.label}
+          </option>
+        ))}
+      </BpkSelect>
+    );
+  }
+}
+
+SelectWithImage.propTypes = {
+  options: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
+
+const options = [
+  {
+    key: 0,
+    value: 'apple',
+    label: 'Apple',
+    image: 'http://via.placeholder.com/250x50/ff5452/000000',
+  },
+  {
+    key: 1,
+    value: 'oranges',
+    label: 'Oranges',
+    image: 'http://via.placeholder.com/250x50/ffbb00/000000',
+  },
+  {
+    key: 2,
+    value: 'pear',
+    label: 'Pear',
+    image: 'http://via.placeholder.com/250x50/00d775/000000',
+  },
+];
 storiesOf('bpk-component-select', module)
   .add('Example', () => (
     <BpkSelect
       id="fruits"
       name="fruits"
       value="oranges"
+      wrapperProps={{ 'aria-label': 'wrappingDiv', 'aria-hidden': true }}
+      imageProps={{ 'aria-label': 'image', 'aria-hidden': false }}
       onChange={action('select changed')}
     >
       <option value="apples">Apples</option>
@@ -226,4 +297,51 @@ storiesOf('bpk-component-select', module)
         </BpkSelect>
       </div>
     </div>
+  ))
+  .add('Manually docked with images', () => (
+    <div style={{ display: 'flex' }}>
+      <div style={{ width: '100%' }}>
+        <SelectWithImage
+          id="large"
+          name="large"
+          large
+          dockedFirst
+          options={options}
+        />
+      </div>
+      <div style={{ width: '100%' }}>
+        <SelectWithImage
+          id="large"
+          name="large"
+          large
+          dockedMiddle
+          options={options}
+        />
+      </div>
+      <div style={{ width: '100%' }}>
+        <SelectWithImage
+          id="large"
+          name="large"
+          large
+          valid={false}
+          options={options}
+          dockedMiddle
+        />
+      </div>
+      <div style={{ width: '100%' }}>
+        <SelectWithImage
+          id="large"
+          name="large"
+          large
+          dockedLast
+          options={options}
+        />
+      </div>
+    </div>
+  ))
+  .add('With Image', () => (
+    <SelectWithImage id="fruits" name="fruits" options={options} />
+  ))
+  .add('With Image Large', () => (
+    <SelectWithImage large id="fruits" name="fruits" options={options} />
   ));

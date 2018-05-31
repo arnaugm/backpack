@@ -26,14 +26,20 @@ const getClassName = cssModules(STYLES);
 
 const BpkSelect = props => {
   const classNames = [getClassName('bpk-select')];
+  const imageClassName = [getClassName('bpk-select-image')];
+  const wrapperClassName = [getClassName('bpk-select-wrapper')];
+
   const {
-    valid,
-    large,
+    className,
     docked,
     dockedFirst,
-    dockedMiddle,
     dockedLast,
-    className,
+    dockedMiddle,
+    image,
+    imageProps,
+    large,
+    valid,
+    wrapperProps,
     ...rest
   } = props;
 
@@ -42,6 +48,8 @@ const BpkSelect = props => {
   const isInvalid = valid === false;
 
   if (large) {
+    wrapperClassName.push(getClassName('bpk-select-wrapper--large'));
+    imageClassName.push(getClassName('bpk-select-image--large'));
     classNames.push(getClassName('bpk-select--large'));
   }
   if (docked) {
@@ -60,13 +68,23 @@ const BpkSelect = props => {
     classNames.push(className);
   }
 
-  return (
+  const select = (
     <select
       className={classNames.join(' ')}
       aria-invalid={isInvalid}
       {...rest}
     />
   );
+
+  if (image) {
+    return (
+      <div className={wrapperClassName.join(' ')} {...wrapperProps}>
+        <img className={imageClassName.join(' ')} {...imageProps} src={image} />
+        {select}
+      </div>
+    );
+  }
+  return select;
 };
 
 BpkSelect.propTypes = {
@@ -74,22 +92,28 @@ BpkSelect.propTypes = {
   name: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
   className: PropTypes.string,
-  valid: PropTypes.bool,
-  large: PropTypes.bool,
   docked: PropTypes.bool,
   dockedFirst: PropTypes.bool,
-  dockedMiddle: PropTypes.bool,
   dockedLast: PropTypes.bool,
+  dockedMiddle: PropTypes.bool,
+  image: PropTypes.string,
+  imageProps: PropTypes.object,
+  large: PropTypes.bool,
+  valid: PropTypes.bool,
+  wrapperProps: PropTypes.object,
 };
 
 BpkSelect.defaultProps = {
   className: null,
-  valid: null,
-  large: false,
   docked: false,
   dockedFirst: false,
-  dockedMiddle: false,
   dockedLast: false,
+  dockedMiddle: false,
+  image: null,
+  imageProps: {},
+  large: false,
+  valid: null,
+  wrapperProps: {},
 };
 
 export default BpkSelect;

@@ -41,3 +41,23 @@
     }
   }
 }
+
+.bpk-select-wrapper {
+  display: flex;
+  height: $bpk-select-height;
+  flex-direction: row;
+  align-items: center;
+
+  &--large {
+    height: $bpk-select-large-height;
+  }
+}
+
+.bpk-select-image {
+  max-height: $bpk-select-height;
+  margin: 0 $bpk-spacing-sm 0 0;
+
+  &--large {
+    max-height: $bpk-select-large-height;
+  }
+}
