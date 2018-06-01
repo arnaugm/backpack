@@ -14,7 +14,7 @@ npm install react-native-bpk-component-pagination-dots --save-dev
 import React, { Component } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { spacingBase } from 'bpk-tokens/tokens/base.react.native';
-import BpkPaginationDots from 'react-native-bpk-component-pagination-dots';
+import BpkCarouselIndicator from 'react-native-bpk-component-pagination-dots';
 
 const styles = StyleSheet.create({
   container: {
@@ -29,15 +29,15 @@ export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <BpkPaginationDots
+        <BpkCarouselIndicator
           pageCount="10"
           selectedIndex="0"
         />
-        <BpkPaginationDots
+        <BpkCarouselIndicator
           pageCount="3"
           selectedIndex="2"
         />
-        <BpkPaginationDots
+        <BpkCarouselIndicator
           pageCount="5"
           selectedIndex="1"
         />

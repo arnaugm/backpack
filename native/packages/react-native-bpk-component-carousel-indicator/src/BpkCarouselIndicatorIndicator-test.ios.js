@@ -16,8 +16,8 @@
  * limitations under the License.
  */
 
-/* @flow */
+import commonTests from './BpkCarouselIndicatorIndicator-test.common';
 
-import BpkPaginationDots from './src/BpkPaginationDots';
-
-export default BpkPaginationDots;
+describe('iOS', () => {
+  commonTests();
+});

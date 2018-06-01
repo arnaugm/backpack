@@ -19,20 +19,20 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import BpkPaginationDotsIndicator, {
+import BpkCarouselIndicatorIndicator, {
   INDICATOR_SIZES,
-} from './BpkPaginationDotsIndicator';
+} from './BpkCarouselIndicatorIndicator';
 
 const commonTests = () => {
   describe('BpkPaginationIndicator', () => {
     it(`should render correctly`, () => {
-      const tree = renderer.create(<BpkPaginationDotsIndicator />).toJSON();
+      const tree = renderer.create(<BpkCarouselIndicatorIndicator />).toJSON();
       expect(tree).toMatchSnapshot();
     });
 
     it(`should render correctly with selected`, () => {
       const tree = renderer
-        .create(<BpkPaginationDotsIndicator selected />)
+        .create(<BpkCarouselIndicatorIndicator selected />)
         .toJSON();
       expect(tree).toMatchSnapshot();
     });
@@ -40,7 +40,7 @@ const commonTests = () => {
     Object.keys(INDICATOR_SIZES).forEach(indicatorSize => {
       it(`should render correctly with size=${indicatorSize}`, () => {
         const tree = renderer
-          .create(<BpkPaginationDotsIndicator size={indicatorSize} />)
+          .create(<BpkCarouselIndicatorIndicator size={indicatorSize} />)
           .toJSON();
         expect(tree).toMatchSnapshot();
       });
